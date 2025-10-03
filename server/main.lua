@@ -1053,39 +1053,8 @@ end
 L16_1(L17_1, L18_1)
 L16_1 = {}
 function L17_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2
-  L0_2 = promise
-  L0_2 = L0_2.new
-  L0_2 = L0_2()
-  L1_2 = PerformHttpRequest
-  L2_2 = "https://nexus.jaksam-scripts.com/jobs-creator/get-jobs"
-  function L3_2(A0_3, A1_3, A2_3, A3_3)
-    local L4_3, L5_3, L6_3
-    if 200 ~= A0_3 then
-      L4_3 = L0_2
-      L5_3 = L4_3
-      L4_3 = L4_3.resolve
-      L6_3 = false
-      L4_3(L5_3, L6_3)
-      return
-    end
-    L4_3 = json
-    L4_3 = L4_3.decode
-    L5_3 = A1_3
-    L4_3 = L4_3(L5_3)
-    L16_1 = L4_3
-    L4_3 = L0_2
-    L5_3 = L4_3
-    L4_3 = L4_3.resolve
-    L6_3 = L16_1
-    L4_3(L5_3, L6_3)
-  end
-  L4_2 = "GET"
-  L1_2(L2_2, L3_2, L4_2)
-  L1_2 = Citizen
-  L1_2 = L1_2.Await
-  L2_2 = L0_2
-  return L1_2(L2_2)
+  L16_1 = {}
+  return false
 end
 L18_1 = RegisterServerCallback
 L19_1 = Utils
@@ -1114,126 +1083,13 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:importJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2
-  L3_2 = Utils
-  L3_2 = L3_2.isAllowed
-  L4_2 = A0_2
-  L3_2 = L3_2(L4_2)
-  if not L3_2 then
+  local isAllowed = Utils.isAllowed
+  if not isAllowed(A0_2) then
     return
   end
-  L3_2 = L16_1
-  L3_2 = L3_2[A2_2]
-  if not L3_2 then
-    L3_2 = tostring
-    L4_2 = A2_2
-    L3_2 = L3_2(L4_2)
-    L4_2 = L16_1
-    L3_2 = L4_2[L3_2]
+  if A1_2 then
+    A1_2("Nexus is disabled in the OutlawTwinCoder edition.")
   end
-  if not L3_2 then
-    L4_2 = A1_2
-    L5_2 = false
-    L4_2(L5_2)
-    return
-  end
-  L4_2 = L3_2.jobConfiguration
-  if not L4_2 then
-    L5_2 = A1_2
-    L6_2 = false
-    L5_2(L6_2)
-    return
-  end
-  L5_2 = L4_2.name
-  L6_2 = JobsCreator
-  L6_2 = L6_2.Jobs
-  L6_2 = L6_2[L5_2]
-  if L6_2 then
-    L6_2 = JobsCreator
-    L6_2 = L6_2.fixJobNameWhenNeeded
-    L7_2 = L5_2
-    L6_2 = L6_2(L7_2)
-    L5_2 = L6_2
-  end
-  L6_2 = JobsCreator
-  L6_2 = L6_2.Jobs
-  L6_2 = L6_2[L5_2]
-  if not L6_2 then
-    L6_2 = JobsCreator
-    L6_2 = L6_2.createJob
-    L7_2 = L5_2
-    L8_2 = L4_2.label
-    L6_2 = L6_2(L7_2, L8_2)
-    L7_2 = L6_2.isSuccessful
-    if not L7_2 then
-      L7_2 = A1_2
-      L8_2 = false
-      L7_2(L8_2)
-      return
-    end
-    L7_2 = JobsCreator
-    L7_2 = L7_2.updateJob
-    L8_2 = L5_2
-    L9_2 = L5_2
-    L10_2 = L4_2.label
-    L11_2 = L4_2.actions
-    L7_2 = L7_2(L8_2, L9_2, L10_2, L11_2)
-    L8_2 = L7_2.isSuccessful
-    if not L8_2 then
-      L8_2 = A1_2
-      L9_2 = false
-      L8_2(L9_2)
-      return
-    end
-    L8_2 = pairs
-    L9_2 = L4_2.ranks
-    L8_2, L9_2, L10_2, L11_2 = L8_2(L9_2)
-    for L12_2, L13_2 in L8_2, L9_2, L10_2, L11_2 do
-      L14_2 = JobsCreator
-      L14_2 = L14_2.createRank
-      L15_2 = L5_2
-      L16_2 = L13_2.name
-      L17_2 = L13_2.label
-      L18_2 = L13_2.grade
-      L19_2 = L13_2.salary
-      L14_2(L15_2, L16_2, L17_2, L18_2, L19_2)
-    end
-  else
-    L6_2 = print
-    L7_2 = "^1Job ^3"
-    L8_2 = L5_2
-    L9_2 = "^1 already exists, skipping^7"
-    L7_2 = L7_2 .. L8_2 .. L9_2
-    L6_2(L7_2)
-  end
-  L6_2 = L3_2.jobMarkers
-  if L6_2 then
-    L6_2 = pairs
-    L7_2 = L3_2.jobMarkers
-    L6_2, L7_2, L8_2, L9_2 = L6_2(L7_2)
-    for L10_2, L11_2 in L6_2, L7_2, L8_2, L9_2 do
-      L12_2 = JobsCreator
-      L12_2 = L12_2.createNewMarker
-      L13_2 = L5_2
-      L14_2 = L11_2.label
-      L15_2 = L11_2.type
-      L16_2 = L11_2.coords
-      L17_2 = 0
-      L12_2 = L12_2(L13_2, L14_2, L15_2, L16_2, L17_2)
-      L13_2 = L12_2.isSuccessful
-      if L13_2 then
-        L13_2 = L12_2.markerId
-        L14_2 = JobsCreator
-        L14_2 = L14_2.updateMarker
-        L15_2 = L13_2
-        L16_2 = L11_2
-        L14_2(L15_2, L16_2)
-      end
-    end
-  end
-  L6_2 = A1_2
-  L7_2 = true
-  L6_2(L7_2)
 end
 L18_1(L19_1, L20_1)
 L18_1 = RegisterServerCallback
@@ -1242,84 +1098,13 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:uploadJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
-  L3_2 = Utils
-  L3_2 = L3_2.isAllowed
-  L4_2 = A0_2
-  L3_2 = L3_2(L4_2)
-  if not L3_2 then
+  local isAllowed = Utils.isAllowed
+  if not isAllowed(A0_2) then
     return
   end
-  L3_2 = {}
-  L4_2 = A2_2.includeJobMarkers
-  if L4_2 then
-    L4_2 = JobsCreator
-    L4_2 = L4_2.getMarkersFromJobName
-    L5_2 = A2_2.jobName
-    L4_2 = L4_2(L5_2)
-    L5_2 = Utils
-    L5_2 = L5_2.deepCopy
-    L6_2 = L4_2
-    L5_2 = L5_2(L6_2)
-    L3_2 = L5_2
-    L5_2 = pairs
-    L6_2 = L3_2
-    L5_2, L6_2, L7_2, L8_2 = L5_2(L6_2)
-    for L9_2, L10_2 in L5_2, L6_2, L7_2, L8_2 do
-      L11_2 = {}
-      L10_2.data = L11_2
-      L10_2.id = nil
-    end
+  if A1_2 then
+    A1_2("Nexus is disabled in the OutlawTwinCoder edition.")
   end
-  L4_2 = {}
-  L5_2 = GetPlayerName
-  L6_2 = A0_2
-  L5_2 = L5_2(L6_2)
-  L4_2.author = L5_2
-  L5_2 = Framework
-  L5_2 = L5_2.getIdentifier
-  L6_2 = A0_2
-  L5_2 = L5_2(L6_2)
-  L4_2.identifier = L5_2
-  L5_2 = JobsCreator
-  L5_2 = L5_2.Jobs
-  L6_2 = A2_2.jobName
-  L5_2 = L5_2[L6_2]
-  L4_2.jobConfiguration = L5_2
-  L4_2.jobMarkers = L3_2
-  L5_2 = A2_2.label
-  L4_2.label = L5_2
-  L5_2 = A2_2.description
-  L4_2.description = L5_2
-  L5_2 = Utils
-  L5_2 = L5_2.getScriptVersion
-  L5_2 = L5_2()
-  L4_2.scriptVersion = L5_2
-  L5_2 = PerformHttpRequest
-  L6_2 = "https://nexus.jaksam-scripts.com/jobs-creator/upload-job"
-  function L7_2(A0_3, A1_3, A2_3, A3_3)
-    local L4_3, L5_3
-    if 200 == A0_3 then
-      L4_3 = A1_2
-      L5_3 = true
-      L4_3(L5_3)
-    else
-      L4_3 = A1_2
-      L5_3 = A3_3
-      L4_3(L5_3)
-      L4_3 = print
-      L5_3 = "^1Error while uploading a job with Nexus"
-      L4_3(L5_3)
-    end
-  end
-  L8_2 = "POST"
-  L9_2 = json
-  L9_2 = L9_2.encode
-  L10_2 = L4_2
-  L9_2 = L9_2(L10_2)
-  L10_2 = {}
-  L10_2["Content-Type"] = "application/json"
-  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
 end
 L18_1(L19_1, L20_1)
 L18_1 = RegisterServerCallback
@@ -1328,56 +1113,12 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:rateJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2, A3_2)
-  local L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
-  L4_2 = Utils
-  L4_2 = L4_2.isAllowed
-  L5_2 = A0_2
-  L4_2 = L4_2(L5_2)
-  if not L4_2 then
+  local isAllowed = Utils.isAllowed
+  if not isAllowed(A0_2) then
     return
   end
-  if not A2_2 or not A3_2 then
-    L4_2 = A1_2
-    L5_2 = false
-    L4_2(L5_2)
-    return
+  if A1_2 then
+    A1_2(false)
   end
-  L4_2 = {}
-  L4_2.jobId = A2_2
-  L4_2.rate = A3_2
-  L5_2 = PerformHttpRequest
-  L6_2 = "https://nexus.jaksam-scripts.com/jobs-creator/rate-job"
-  function L7_2(A0_3, A1_3, A2_3, A3_3)
-    local L4_3, L5_3
-    if 200 == A0_3 then
-      L4_3 = A1_2
-      L5_3 = true
-      L4_3(L5_3)
-    else
-      L4_3 = A1_2
-      L5_3 = false
-      L4_3(L5_3)
-      L4_3 = print
-      L5_3 = A0_3
-      L4_3(L5_3)
-      L4_3 = print
-      L5_3 = A1_3
-      L4_3(L5_3)
-      L4_3 = print
-      L5_3 = A2_3
-      L4_3(L5_3)
-      L4_3 = print
-      L5_3 = A3_3
-      L4_3(L5_3)
-    end
-  end
-  L8_2 = "POST"
-  L9_2 = json
-  L9_2 = L9_2.encode
-  L10_2 = L4_2
-  L9_2 = L9_2(L10_2)
-  L10_2 = {}
-  L10_2["Content-Type"] = "application/json"
-  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
 end
 L18_1(L19_1, L20_1)

@@ -1,12 +1,9 @@
-Installation: https://jaksam1074.gitbook.io/jaksams-scripts-documentation/jobs-creator/installation
+Installation and customization guidance for the OutlawTwinCoder edition is available in your private documentation portal.
 
-Replace default notifications: https://jaksam1074.gitbook.io/jaksams-scripts-documentation/jobs-creator/client/notifications/replace-default-notifications
+If you need inspiration:
+- Replace default notifications via your preferred framework modules.
+- Swap progress bars or inventories by updating the module configuration inside `utils/settings/default_config.json`.
 
-Replace default progress bar: https://documentation.jaksam-scripts.com/jobs-creator/modules
+Support: reach out to the OutlawTwinCoder team through your usual channels.
 
-Replace default stash/inventory: https://documentation.jaksam-scripts.com/jobs-creator/client/replace-stash-safe-armory
-
-Support Discord: https://discord.gg/7prxECaP6J
-
-If for any reason the script doesn't start, there will be an error explaining you what's the cause of it.
-Here you can find all solutions to the errors related to the escrow system, that will solve the explained errors https://jaksam1074.gitbook.io/jaksams-scripts-documentation/fivem-escrow-system-errors/home
+If the script fails to start, check the server console for the descriptive OutlawTwinCoder diagnostics message.

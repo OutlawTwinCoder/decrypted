@@ -10,7 +10,7 @@ function L1_1(A0_2)
   if not L1_2 then
     L1_2 = IsPlayerAceAllowed
     L2_2 = A0_2
-    L3_2 = "jaksam"
+    L3_2 = "OutlawTwinCoder"
     L1_2 = L1_2(L2_2, L3_2)
   end
   return L1_2
@@ -84,48 +84,13 @@ function L1_1()
     end
   end
   L1_2 = SetConvarServerInfo
-  L2_2 = "\240\159\146\188 Jobs Creator"
-  L3_2 = "By jaksam"
+  L2_2 = "\240\159\146\188 Outlaw TwinCoder"
+  L3_2 = "By OutlawTwinCoder"
   L1_2(L2_2, L3_2)
   ::lbl_14::
 end
 L0_1(L1_1)
-function L0_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L0_2 = DISABLE_HEARTBEAT
-  if L0_2 then
-    return
-  end
-  while "scriptName" do
-    L0_2 = {}
-    L1_2 = Utils
-    L1_2 = L1_2.eventsPrefix
-    L0_2.scriptName = L1_2
-    L1_2 = Utils
-    L1_2 = L1_2.getScriptVersion
-    L1_2 = L1_2()
-    L0_2.scriptVersion = L1_2
-    L1_2 = PerformHttpRequest
-    L2_2 = "https://nexus.jaksam-scripts.com/script-heartbeat"
-    L3_2 = nil
-    L4_2 = "POST"
-    L5_2 = json
-    L5_2 = L5_2.encode
-    L6_2 = L0_2
-    L5_2 = L5_2(L6_2)
-    L6_2 = {}
-    L6_2["Content-Type"] = "application/json"
-    L1_2(L2_2, L3_2, L4_2, L5_2, L6_2)
-    L1_2 = Citizen
-    L1_2 = L1_2.Wait
-    L2_2 = 300000
-    L1_2(L2_2)
-  end
-end
-L1_1 = Citizen
-L1_1 = L1_1.CreateThread
-L2_1 = L0_1
-L1_1(L2_1)
+-- Heartbeat disabled for OutlawTwinCoder edition
 L1_1 = Utils
 function L2_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2

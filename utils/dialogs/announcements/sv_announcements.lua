@@ -140,56 +140,13 @@ function L4_1(A0_2)
   return L1_2
 end
 function L5_1()
-  local L0_2, L1_2, L2_2, L3_2, L4_2, L5_2, L6_2
-  L0_2 = {}
-  L1_2 = Utils
-  L1_2 = L1_2.getPartialServerKey
-  L1_2 = L1_2()
-  L0_2.serverUID = L1_2
-  L1_2 = PerformHttpRequest
-  L2_2 = "https://nexus.jaksam-scripts.com/shared/get-announcements"
-  function L3_2(A0_3, A1_3, A2_3, A3_3)
-    local L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3, L12_3, L13_3
-    if 200 ~= A0_3 then
-      return
-    end
-    L4_3 = json
-    L4_3 = L4_3.decode
-    L5_3 = A1_3
-    L4_3 = L4_3(L5_3)
-    L5_3 = {}
-    L0_1 = L5_3
-    L5_3 = 1
-    L6_3 = #L4_3
-    L7_3 = 1
-    for L8_3 = L5_3, L6_3, L7_3 do
-      L9_3 = L4_3[L8_3]
-      L10_3 = L4_1
-      L11_3 = L9_3
-      L10_3 = L10_3(L11_3)
-      if L10_3 then
-        L10_3 = table
-        L10_3 = L10_3.insert
-        L11_3 = L0_1
-        L12_3 = {}
-        L13_3 = L9_3.id
-        L12_3.id = L13_3
-        L13_3 = L9_3.message
-        L12_3.message = L13_3
-        L13_3 = L9_3.url
-        L12_3.url = L13_3
-        L10_3(L11_3, L12_3)
-      end
-    end
-  end
-  L4_2 = "POST"
-  L5_2 = json
-  L5_2 = L5_2.encode
-  L6_2 = L0_2
-  L5_2 = L5_2(L6_2)
-  L6_2 = {}
-  L6_2["Content-Type"] = "application/json"
-  L1_2(L2_2, L3_2, L4_2, L5_2, L6_2)
+  L0_1 = {
+    {
+      id = "outlawtwincoder_welcome",
+      message = "Welcome to the OutlawTwinCoder edition. Online Nexus services are disabled by design.",
+      url = ""
+    }
+  }
 end
 L6_1 = Citizen
 L6_1 = L6_1.CreateThread
@@ -255,24 +212,8 @@ function L8_1(A0_2)
   ::lbl_13::
   L2_2 = L1_1
   L2_2[A0_2] = true
-  L2_2 = {}
-  L3_2 = Utils
-  L3_2 = L3_2.getPartialServerKey
-  L3_2 = L3_2()
-  L2_2.serverUID = L3_2
-  L2_2.announcementId = A0_2
-  L3_2 = PerformHttpRequest
-  L4_2 = "https://nexus.jaksam-scripts.com/shared/announcement-seen"
-  L5_2 = nil
-  L6_2 = "POST"
-  L7_2 = json
-  L7_2 = L7_2.encode
-  L8_2 = L2_2
-  L7_2 = L7_2(L8_2)
-  L8_2 = {}
-  L8_2["Content-Type"] = "application/json"
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2)
-end
+    L2_2 = {}
+  end
 L6_1(L7_1, L8_1)
 L6_1 = RegisterNetEvent
 L7_1 = Utils
@@ -297,22 +238,6 @@ function L8_1(A0_2)
   ::lbl_13::
   L2_2 = L2_1
   L2_2[A0_2] = true
-  L2_2 = {}
-  L3_2 = Utils
-  L3_2 = L3_2.getPartialServerKey
-  L3_2 = L3_2()
-  L2_2.serverUID = L3_2
-  L2_2.announcementId = A0_2
-  L3_2 = PerformHttpRequest
-  L4_2 = "https://nexus.jaksam-scripts.com/shared/announcement-clicked"
-  L5_2 = nil
-  L6_2 = "POST"
-  L7_2 = json
-  L7_2 = L7_2.encode
-  L8_2 = L2_2
-  L7_2 = L7_2(L8_2)
-  L8_2 = {}
-  L8_2["Content-Type"] = "application/json"
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2)
-end
+    L2_2 = {}
+  end
 L6_1(L7_1, L8_1)
