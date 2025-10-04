@@ -1,6 +1,6 @@
 version '8.16.1'
 
-author 'jaksam1074'
+author 'OutlawTwinCoder'
 
 shared_scripts {
     "shared/shared.lua",

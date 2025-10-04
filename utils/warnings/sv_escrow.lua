@@ -79,7 +79,7 @@ function L3_1()
     L5_2 = L5_2 .. L6_2 .. L7_2
     L4_2(L5_2)
     L4_2 = print
-    L5_2 = "https://documentation.jaksam-scripts.com/fivem-escrow-system-errors/what-to-do-if-nothing-is-fixing-the-errors"
+    L5_2 = "https://docs.outlawtwincoder.com/jobs-creator/escrow-troubleshooting"
     L4_2(L5_2)
     L4_2 = print
     L5_2 = "====================================="

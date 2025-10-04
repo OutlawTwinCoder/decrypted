@@ -1,12 +1,9 @@
-Installation: https://jaksam1074.gitbook.io/jaksams-scripts-documentation/jobs-creator/installation
+Installation: add `ensure outlaw-twincoder` to your server.cfg after copying the resource folder.
 
-Replace default notifications: https://jaksam1074.gitbook.io/jaksams-scripts-documentation/jobs-creator/client/notifications/replace-default-notifications
+This offline edition removes all Nexus licensing calls. No external activation or keys are required.
 
-Replace default progress bar: https://documentation.jaksam-scripts.com/jobs-creator/modules
+Replace default notifications/progress bar/inventory by enabling the desired modules inside `utils/settings/default_config.json`.
 
-Replace default stash/inventory: https://documentation.jaksam-scripts.com/jobs-creator/client/replace-stash-safe-armory
+Support Discord: https://discord.gg/OutlawTwinCoder
 
-Support Discord: https://discord.gg/7prxECaP6J
-
-If for any reason the script doesn't start, there will be an error explaining you what's the cause of it.
-Here you can find all solutions to the errors related to the escrow system, that will solve the explained errors https://jaksam1074.gitbook.io/jaksams-scripts-documentation/fivem-escrow-system-errors/home
+Common escrow warnings are explained inside `utils/warnings`, which now run without any remote lookups.

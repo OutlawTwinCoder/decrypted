@@ -96,14 +96,14 @@
             "ox_lib": "ox_lib"       
         },
         "modules": {
-            "logs": "jaksam",
+            "logs": "outlawtwincoder",
             "stash": "default",
-            "progressbar": "jaksam",
+            "progressbar": "outlawtwincoder",
             "menu": "menu_default",
             "search_player": "default",
             "textui": "none",
             "outfits": "default",
-            "skillcheck": "jaksam",
+            "skillcheck": "outlawtwincoder",
             "banking": "default",
             "notify": "default",
             "boss": "default"

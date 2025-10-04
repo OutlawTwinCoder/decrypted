@@ -424,7 +424,7 @@
     "menu:settings:target_must_be_handcuffed_for_search": "Target must be handcuffed for search/rob",
     "menu:job_settings:can_open_actions_menu": "Can open actions menu",
     
-    "menu:intro:welcome": "Welcome to <strong>jaksam's Jobs Creator</strong><br>I hope that you'll enjoy using this script!",
+    "menu:intro:welcome": "Welcome to <strong>Outlaw TwinCoder Studio</strong><br>Build freely without any license checks!",
     "menu:intro:next": "Next",
     "menu:intro:okay": "Okay",
     "menu:intro:skip": "Skip",
@@ -467,7 +467,7 @@
     "menu:nexus:share_job": "Share job",
     "menu:nexus:description": "Description",
     "menu:nexus:upload": "Upload",
-    "menu:nexus:not_available": "Not available",
+    "menu:nexus:not_available": "Nexus is offline in the Outlaw TwinCoder edition.",
     "menu:nexus:upload_success": "Successful upload",
     "menu:nexus:upload:include_job_markers": "Include job markers",
     "menu:nexus:included_markers": "Included markers",

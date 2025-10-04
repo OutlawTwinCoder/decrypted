@@ -1,5 +1,5 @@
 local moduleType = "progressbar" -- Module category
-local moduleName = "jaksam" -- THIS module name
+local moduleName = "outlawtwincoder" -- THIS module name
 
 -- Don't touch, required to appear in in-game settings
 Integrations.modules = Integrations.modules or {}

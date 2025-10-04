@@ -1,5 +1,5 @@
 local moduleType = "logs" -- Module category
-local moduleName = "jaksam" -- THIS module name
+local moduleName = "outlawtwincoder" -- THIS module name
 
 -- Don't touch
 Integrations[moduleType] = Integrations[moduleType] or {}

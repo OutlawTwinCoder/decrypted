@@ -33,7 +33,7 @@ function L5_1(A0_2, A1_2, A2_2)
   L3_2 = config
   L3_2 = L3_2.modules
   L3_2 = L3_2.progressbar
-  if "jaksam" == L3_2 then
+  if "outlawtwincoder" == L3_2 then
     L3_2 = L2_1
     L4_2 = A0_2
     L5_2 = A1_2
