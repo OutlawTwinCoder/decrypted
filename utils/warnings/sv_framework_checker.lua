@@ -77,7 +77,7 @@ function L2_1()
     L2_2 = "- If you have the correct version in ^3FiveM keymaster^1, please download it and use that one"
     L1_2(L2_2)
     L1_2 = print
-    L2_2 = "- If you don't have the correct version in ^3FiveM keymaster^1, you can contact ^2OutlawTwinCoder support^1"
+    L2_2 = "- If you don't have the correct version in ^3FiveM keymaster^1, grab the latest build from the ^2OutlawTwinCoder hub^1"
     L1_2(L2_2)
     L1_2 = print
     L2_2 = "====================================="

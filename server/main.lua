@@ -1052,8 +1052,8 @@ function L18_1(A0_2)
 end
 L16_1(L17_1, L18_1)
 L16_1 = {}
+local NEXUS_DISABLED_MESSAGE = "Nexus features are disabled in the OutlawTwinCoder edition."
 function L17_1()
-  L16_1 = {}
   return false
 end
 L18_1 = RegisterServerCallback
@@ -1070,11 +1070,9 @@ function L20_1(A0_2, A1_2)
   if not L2_2 then
     return
   end
-  L2_2 = L17_1
-  L2_2 = L2_2()
-  L3_2 = A1_2
-  L4_2 = L2_2
-  L3_2(L4_2)
+  L2_2 = A1_2
+  L3_2 = false
+  L2_2(L3_2)
 end
 L18_1(L19_1, L20_1)
 L18_1 = RegisterServerCallback
@@ -1083,13 +1081,130 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:importJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2)
-  local isAllowed = Utils.isAllowed
-  if not isAllowed(A0_2) then
+  local L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2
+  L3_2 = Utils
+  L3_2 = L3_2.isAllowed
+  L4_2 = A0_2
+  L3_2 = L3_2(L4_2)
+  if not L3_2 then
     return
   end
-  if A1_2 then
-    A1_2("Nexus is disabled in the OutlawTwinCoder edition.")
+  L3_2 = A1_2
+  L4_2 = NEXUS_DISABLED_MESSAGE
+  L3_2(L4_2)
+  return
+  L3_2 = L16_1
+  L3_2 = L3_2[A2_2]
+  if not L3_2 then
+    L3_2 = tostring
+    L4_2 = A2_2
+    L3_2 = L3_2(L4_2)
+    L4_2 = L16_1
+    L3_2 = L4_2[L3_2]
   end
+  if not L3_2 then
+    L4_2 = A1_2
+    L5_2 = false
+    L4_2(L5_2)
+    return
+  end
+  L4_2 = L3_2.jobConfiguration
+  if not L4_2 then
+    L5_2 = A1_2
+    L6_2 = false
+    L5_2(L6_2)
+    return
+  end
+  L5_2 = L4_2.name
+  L6_2 = JobsCreator
+  L6_2 = L6_2.Jobs
+  L6_2 = L6_2[L5_2]
+  if L6_2 then
+    L6_2 = JobsCreator
+    L6_2 = L6_2.fixJobNameWhenNeeded
+    L7_2 = L5_2
+    L6_2 = L6_2(L7_2)
+    L5_2 = L6_2
+  end
+  L6_2 = JobsCreator
+  L6_2 = L6_2.Jobs
+  L6_2 = L6_2[L5_2]
+  if not L6_2 then
+    L6_2 = JobsCreator
+    L6_2 = L6_2.createJob
+    L7_2 = L5_2
+    L8_2 = L4_2.label
+    L6_2 = L6_2(L7_2, L8_2)
+    L7_2 = L6_2.isSuccessful
+    if not L7_2 then
+      L7_2 = A1_2
+      L8_2 = false
+      L7_2(L8_2)
+      return
+    end
+    L7_2 = JobsCreator
+    L7_2 = L7_2.updateJob
+    L8_2 = L5_2
+    L9_2 = L5_2
+    L10_2 = L4_2.label
+    L11_2 = L4_2.actions
+    L7_2 = L7_2(L8_2, L9_2, L10_2, L11_2)
+    L8_2 = L7_2.isSuccessful
+    if not L8_2 then
+      L8_2 = A1_2
+      L9_2 = false
+      L8_2(L9_2)
+      return
+    end
+    L8_2 = pairs
+    L9_2 = L4_2.ranks
+    L8_2, L9_2, L10_2, L11_2 = L8_2(L9_2)
+    for L12_2, L13_2 in L8_2, L9_2, L10_2, L11_2 do
+      L14_2 = JobsCreator
+      L14_2 = L14_2.createRank
+      L15_2 = L5_2
+      L16_2 = L13_2.name
+      L17_2 = L13_2.label
+      L18_2 = L13_2.grade
+      L19_2 = L13_2.salary
+      L14_2(L15_2, L16_2, L17_2, L18_2, L19_2)
+    end
+  else
+    L6_2 = print
+    L7_2 = "^1Job ^3"
+    L8_2 = L5_2
+    L9_2 = "^1 already exists, skipping^7"
+    L7_2 = L7_2 .. L8_2 .. L9_2
+    L6_2(L7_2)
+  end
+  L6_2 = L3_2.jobMarkers
+  if L6_2 then
+    L6_2 = pairs
+    L7_2 = L3_2.jobMarkers
+    L6_2, L7_2, L8_2, L9_2 = L6_2(L7_2)
+    for L10_2, L11_2 in L6_2, L7_2, L8_2, L9_2 do
+      L12_2 = JobsCreator
+      L12_2 = L12_2.createNewMarker
+      L13_2 = L5_2
+      L14_2 = L11_2.label
+      L15_2 = L11_2.type
+      L16_2 = L11_2.coords
+      L17_2 = 0
+      L12_2 = L12_2(L13_2, L14_2, L15_2, L16_2, L17_2)
+      L13_2 = L12_2.isSuccessful
+      if L13_2 then
+        L13_2 = L12_2.markerId
+        L14_2 = JobsCreator
+        L14_2 = L14_2.updateMarker
+        L15_2 = L13_2
+        L16_2 = L11_2
+        L14_2(L15_2, L16_2)
+      end
+    end
+  end
+  L6_2 = A1_2
+  L7_2 = true
+  L6_2(L7_2)
 end
 L18_1(L19_1, L20_1)
 L18_1 = RegisterServerCallback
@@ -1098,13 +1213,16 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:uploadJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2)
-  local isAllowed = Utils.isAllowed
-  if not isAllowed(A0_2) then
+  local L3_2
+  L3_2 = Utils
+  L3_2 = L3_2.isAllowed
+  L3_2 = L3_2(A0_2)
+  if not L3_2 then
     return
   end
-  if A1_2 then
-    A1_2("Nexus is disabled in the OutlawTwinCoder edition.")
-  end
+  L3_2 = A1_2
+  L3_2(NEXUS_DISABLED_MESSAGE)
+  return
 end
 L18_1(L19_1, L20_1)
 L18_1 = RegisterServerCallback
@@ -1113,12 +1231,15 @@ L19_1 = L19_1.eventsPrefix
 L20_1 = ":nexus:rateJob"
 L19_1 = L19_1 .. L20_1
 function L20_1(A0_2, A1_2, A2_2, A3_2)
-  local isAllowed = Utils.isAllowed
-  if not isAllowed(A0_2) then
+  local L4_2
+  L4_2 = Utils
+  L4_2 = L4_2.isAllowed
+  L4_2 = L4_2(A0_2)
+  if not L4_2 then
     return
   end
-  if A1_2 then
-    A1_2(false)
-  end
+  L4_2 = A1_2
+  L4_2(NEXUS_DISABLED_MESSAGE)
+  return
 end
 L18_1(L19_1, L20_1)

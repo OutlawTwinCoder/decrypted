@@ -1,9 +1,9 @@
-Installation and customization guidance for the OutlawTwinCoder edition is available in your private documentation portal.
+Installation: add `ensure outlaw-twincoder` to your server.cfg after copying the resource folder.
 
-If you need inspiration:
-- Replace default notifications via your preferred framework modules.
-- Swap progress bars or inventories by updating the module configuration inside `utils/settings/default_config.json`.
+This offline edition removes all Nexus licensing calls. No external activation or keys are required.
 
-Support: reach out to the OutlawTwinCoder team through your usual channels.
+Replace default notifications/progress bar/inventory by enabling the desired modules inside `utils/settings/default_config.json`.
 
-If the script fails to start, check the server console for the descriptive OutlawTwinCoder diagnostics message.
+Support Discord: https://discord.gg/OutlawTwinCoder
+
+Common escrow warnings are explained inside `utils/warnings`, which now run without any remote lookups.

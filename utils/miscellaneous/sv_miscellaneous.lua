@@ -85,12 +85,24 @@ function L1_1()
   end
   L1_2 = SetConvarServerInfo
   L2_2 = "\240\159\146\188 Outlaw TwinCoder"
-  L3_2 = "By OutlawTwinCoder"
+  L3_2 = "License-free edition"
   L1_2(L2_2, L3_2)
   ::lbl_14::
 end
 L0_1(L1_1)
--- Heartbeat disabled for OutlawTwinCoder edition
+function L0_1()
+  local L0_2
+  L0_2 = DISABLE_HEARTBEAT
+  if L0_2 then
+    return
+  end
+  L0_2 = print
+  L0_2("^2[OutlawTwinCoder] Remote heartbeat disabled; running fully offline.^7")
+end
+L1_1 = Citizen
+L1_1 = L1_1.CreateThread
+L2_1 = L0_1
+L1_1(L2_1)
 L1_1 = Utils
 function L2_1()
   local L0_2, L1_2, L2_2, L3_2, L4_2

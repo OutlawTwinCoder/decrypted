@@ -122,26 +122,38 @@ function L4_1(A0_2, A1_2, A2_2)
     L6_2 = 1000
     L5_2(L6_2)
   end
-    if nil == A2_2 then
+  if nil == A2_2 then
+    L5_2 = JobsCreator
+    L5_2 = L5_2.isOffDutyName
+    L6_2 = L3_2
+    L5_2 = L5_2(L6_2)
+    A2_2 = L5_2
+  else
+    if A2_2 then
       L5_2 = JobsCreator
       L5_2 = L5_2.isOffDutyName
       L6_2 = L3_2
       L5_2 = L5_2(L6_2)
-      A2_2 = L5_2
-    else
-      L5_2 = JobsCreator
-      L5_2 = L5_2.isOffDutyName
-      L6_2 = L3_2
-      L5_2 = L5_2(L6_2)
-      if not A2_2 and L5_2 then
-        L6_2 = A1_2
-        L7_2 = JobsCreator
-        L7_2 = L7_2.isOffDutyName
-        L8_2 = L3_2
-        L7_2, L8_2, L9_2, L10_2, L11_2 = L7_2(L8_2)
-        return L6_2(L7_2, L8_2, L9_2, L10_2, L11_2)
+      if not L5_2 then
+        goto lbl_56
       end
     end
+    if not A2_2 then
+      L5_2 = JobsCreator
+      L5_2 = L5_2.isOffDutyName
+      L6_2 = L3_2
+      L5_2 = L5_2(L6_2)
+      ::lbl_56::
+      if L5_2 then
+        L5_2 = A1_2
+        L6_2 = JobsCreator
+        L6_2 = L6_2.isOffDutyName
+        L7_2 = L3_2
+        L6_2, L7_2, L8_2, L9_2, L10_2 = L6_2(L7_2)
+        return L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
+      end
+    end
+  end
   L5_2 = nil
   if A2_2 then
     L6_2 = JobsCreator

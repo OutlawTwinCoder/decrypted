@@ -4,7 +4,13 @@ if not L0_1 then
   L0_1 = {}
 end
 Dialogs = L0_1
-L0_1 = {}
+L0_1 = {
+  {
+    id = "offline-info",
+    message = "Nexus announcements are disabled in the OutlawTwinCoder edition.",
+    url = nil
+  }
+}
 L1_1 = {}
 L2_1 = {}
 function L3_1(A0_2)
@@ -142,32 +148,21 @@ end
 function L5_1()
   L0_1 = {
     {
-      id = "outlawtwincoder_welcome",
-      message = "Welcome to the OutlawTwinCoder edition. Online Nexus services are disabled by design.",
-      url = ""
+      id = "offline-info",
+      message = "Nexus announcements are disabled in the OutlawTwinCoder edition.",
+      url = nil
     }
   }
 end
 L6_1 = Citizen
 L6_1 = L6_1.CreateThread
 function L7_1()
-  local L0_2, L1_2
+  local L0_2
   L0_2 = DISABLE_ANNOUNCEMENTS
   if L0_2 then
     return
   end
-  while true do
-    L0_2 = Citizen
-    L0_2 = L0_2.Wait
-    L1_2 = 60000
-    L0_2(L1_2)
-    L0_2 = L5_1
-    L0_2()
-    L0_2 = Citizen
-    L0_2 = L0_2.Wait
-    L1_2 = 1740000
-    L0_2(L1_2)
-  end
+  L5_1()
 end
 L6_1(L7_1)
 L6_1 = RegisterServerCallback
@@ -212,8 +207,8 @@ function L8_1(A0_2)
   ::lbl_13::
   L2_2 = L1_1
   L2_2[A0_2] = true
-    L2_2 = {}
-  end
+  return
+end
 L6_1(L7_1, L8_1)
 L6_1 = RegisterNetEvent
 L7_1 = Utils
@@ -238,6 +233,6 @@ function L8_1(A0_2)
   ::lbl_13::
   L2_2 = L2_1
   L2_2[A0_2] = true
-    L2_2 = {}
-  end
+  return
+end
 L6_1(L7_1, L8_1)

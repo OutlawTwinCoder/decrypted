@@ -393,7 +393,7 @@ function L9_1(A0_2, A1_2)
 end
 L7_1(L8_1, L9_1)
 function L7_1(A0_2, A1_2, A2_2, A3_2, A4_2)
-  local L5_2, L6_2, L7_2, L8_2, L9_2
+  local L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2
   L5_2 = GetResourceKvpString
   L6_2 = A2_2
   L7_2 = "_command"
@@ -405,7 +405,6 @@ function L7_1(A0_2, A1_2, A2_2, A3_2, A4_2)
   L8_2 = nil
   L6_2 = L6_2(L7_2, L8_2)
   if not (L6_2 == A1_2 and L6_2) or not L5_2 then
-    local L10_2
     L7_2 = SetResourceKvp
     L8_2 = A2_2
     L9_2 = A1_2
@@ -450,7 +449,7 @@ function L7_1(A0_2, A1_2, A2_2, A3_2, A4_2)
   L8_2 = L5_2
   L9_2 = A3_2
   L10_2 = "keyboard"
-  L11_2 = L6_2 or A1_2
+  L11_2 = A1_2
   L7_2(L8_2, L9_2, L10_2, L11_2)
 end
 registerAdvancedKeymap = L7_1
